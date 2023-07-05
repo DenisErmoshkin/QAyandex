@@ -31,6 +31,28 @@ class RegPage:
     ALERT_PASS_CONF_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[2]/div[2]/div/div') # Необходимо ввести пароль еще раз
     ALERT_PHONE_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[3]/div/div[1]/div/div') # Пожалуйста, укажите номер телефона
 
+    def qwe(self):
+        driver = webdriver.Chrome()
+        driver.get(RegPage.REG_PAGE_ADDRESS)
+        
+        firstname = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_FIRSTNAME))
+        lastname = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_LASTNAME))
+        login = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_LOGIN))
+        passw = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_PASS))
+        pass_conf = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_PASS_CONF))
+        phone = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_PHONE))
+
+        firstname.send_keys('asd')
+        lastname.send_keys('asd')
+        login.send_keys('qwe')
+        passw.send_keys('asd')
+        pass_conf.send_keys('zxc')
+        phone.send_keys('fgh')
+
+        time.sleep(3)
+        driver.quit()
 
 
 
+q = RegPage()
+q.qwe()
