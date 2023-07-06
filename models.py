@@ -15,6 +15,7 @@ class SuccessRegPage:
     USER_ID_BADGE = (By.XPATH, '//*[@id="root"]/div/div[1]/div[1]/div/div/div/a[1]/div')
     USER_ID_BAGE_CLOSE = (By.XPATH, '//*[@id="root"]/div/div/div/div[1]/div[1]/div[3]/div')
 
+
 class RegPage:
     REG_PAGE_ADDRESS = "https://passport.yandex.ru/registration?from=cloud&origin=disk_main-loginmenu_ru&retpath=https%3A%2F%2Fsso.passport.yandex.ru%2Fprepare%3Fuuid%3D6cca8810-61c4-4dad-a6db-a3fc2448dadf%26goal%3Dhttps%253A%252F%252Fya.ru%252F%26finish%3Dhttps%253A%252F%252Fdisk.yandex.ru%252Fclient%252Fdisk%253Fsource%253Dmain-loginmenu&process_uuid=f429ef0a-c189-4745-b372-3522397bd6b8"
     INPUT_FIRSTNAME = (By.ID, 'firstname')
@@ -24,23 +25,30 @@ class RegPage:
     INPUT_PASS_CONF = (By.ID, 'password_confirm')
     INPUT_PHONE = (By.ID, 'phone')
     BUTTON_REG = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[4]/span/button')
+    ALERT = (By.XPATH, '//div[@role="alert"]')
     ALERT_NAME_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[1]/div[1]/div/div')
     ALERT_LASTNAME_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[1]/div[2]/div/div')
-    ALERT_LOGIN_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[1]/div[3]/div') # Такой логин не подойдет ... К сожалению, логин занят
-    ALERT_PASS_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[2]/div[1]/div/div') # Необходимо выбрать пароль
-    ALERT_PASS_CONF_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[2]/div[2]/div/div') # Необходимо ввести пароль еще раз
-    ALERT_PHONE_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[3]/div/div[1]/div/div') # Пожалуйста, укажите номер телефона
+    ALERT_LOGIN_ERR = (By.XPATH,
+                       '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[1]/div[3]/div')  # Такой логин не подойдет ... К сожалению, логин занят
+    ALERT_PASS_ERR = (
+        By.XPATH,
+        '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[2]/div[1]/div/div')  # Необходимо выбрать пароль
+    ALERT_PASS_CONF_ERR = (By.XPATH,
+                           '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[2]/div[2]/div/div')  # Необходимо ввести пароль еще раз
+    ALERT_PHONE_ERR = (By.XPATH,
+                       '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[3]/div/div[1]/div/div')  # Пожалуйста, укажите номер телефона
 
     def qwe(self):
         driver = webdriver.Chrome()
         driver.get(RegPage.REG_PAGE_ADDRESS)
-        
+
         firstname = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_FIRSTNAME))
         lastname = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_LASTNAME))
         login = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_LOGIN))
         passw = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_PASS))
         pass_conf = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_PASS_CONF))
         phone = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_PHONE))
+        button_reg = wait(driver, 10).until(EC.element_to_be_clickable(RegPage.BUTTON_REG))
 
         firstname.send_keys('asd')
         lastname.send_keys('asd')
@@ -49,9 +57,24 @@ class RegPage:
         pass_conf.send_keys('zxc')
         phone.send_keys('fgh')
 
+        # time.sleep(3)
+        print(button_reg.text)
+        # button_reg.click()
+        driver.execute_script("arguments[0].click();", button_reg)
+        # passw.send_keys(Keys.ENTER)
+        try:
+            alert = wait(driver, 10).until(EC.presence_of_element_located(RegPage.ALERT))
+        except:
+            pass
+
+
+        assert alert != False
+
+        print(alert.text)
+        print(alert)
+
         time.sleep(3)
         driver.quit()
-
 
 
 q = RegPage()
