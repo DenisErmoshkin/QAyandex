@@ -28,17 +28,12 @@ class RegPage:
     ALERT = (By.XPATH, '//div[@role="alert"]')
     ALERT_NAME_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[1]/div[1]/div/div')
     ALERT_LASTNAME_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[1]/div[2]/div/div')
-    ALERT_LOGIN_ERR = (By.XPATH,
-                       '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[1]/div[3]/div')  # Такой логин не подойдет ... К сожалению, логин занят
-    ALERT_PASS_ERR = (
-        By.XPATH,
-        '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[2]/div[1]/div/div')  # Необходимо выбрать пароль
-    ALERT_PASS_CONF_ERR = (By.XPATH,
-                           '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[2]/div[2]/div/div')  # Необходимо ввести пароль еще раз
-    ALERT_PHONE_ERR = (By.XPATH,
-                       '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[3]/div/div[1]/div/div')  # Пожалуйста, укажите номер телефона
+    ALERT_LOGIN_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[1]/div[3]/div')  # Такой логин не подойдет ... К сожалению, логин занят
+    ALERT_PASS_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[2]/div[1]/div/div')  # Необходимо выбрать пароль
+    ALERT_PASS_CONF_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[2]/div[2]/div/div')  # Необходимо ввести пароль еще раз
+    ALERT_PHONE_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[3]/div/div[1]/div/div')  # Пожалуйста, укажите номер телефона
 
-    def qwe(self):
+    def negative_tests_form(self, test_date):
         driver = webdriver.Chrome()
         driver.get(RegPage.REG_PAGE_ADDRESS)
 
@@ -50,32 +45,33 @@ class RegPage:
         phone = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_PHONE))
         button_reg = wait(driver, 10).until(EC.element_to_be_clickable(RegPage.BUTTON_REG))
 
-        firstname.send_keys('asd')
-        lastname.send_keys('asd')
-        login.send_keys('qwe')
-        passw.send_keys('asd')
-        pass_conf.send_keys('zxc')
-        phone.send_keys('fgh')
+        firstname.send_keys(test_date[0])
+        lastname.send_keys(test_date[1])
+        login.send_keys(test_date[2])
+        passw.send_keys(test_date[3])
+        pass_conf.send_keys(test_date[4])
+        phone.send_keys(test_date[5])
 
-        # time.sleep(3)
         print(button_reg.text)
         # button_reg.click()
         driver.execute_script("arguments[0].click();", button_reg)
         # passw.send_keys(Keys.ENTER)
+
         try:
             alert = wait(driver, 10).until(EC.presence_of_element_located(RegPage.ALERT))
         except:
             pass
 
-
-        assert alert != False
+        # url = driver.current_url
+        assert alert != False, 'test is failed, NO ALERT'
+        # assert url == RegPage.REG_PAGE_ADDRESS, 'test is failed'
 
         print(alert.text)
-        print(alert)
+        print(type(alert))
 
-        time.sleep(3)
+        time.sleep(1)
         driver.quit()
 
 
 q = RegPage()
-q.qwe()
+q.negative_tests_form(['qwe', '', 'ermqwe', 'Qwertyuiop[1974', 'Qwertyuiop[1974', '+420773288247'])
