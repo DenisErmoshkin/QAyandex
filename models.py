@@ -33,10 +33,9 @@ class RegPage:
     ALERT_PASS_CONF_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[2]/div[2]/div/div')  # Необходимо ввести пароль еще раз
     ALERT_PHONE_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[3]/div/div[1]/div/div')  # Пожалуйста, укажите номер телефона
 
-    def negative_tests_form(self, test_date):
+    def __get_locators(self, test_date):
         driver = webdriver.Chrome()
         driver.get(RegPage.REG_PAGE_ADDRESS)
-
         firstname = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_FIRSTNAME))
         lastname = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_LASTNAME))
         login = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_LOGIN))
@@ -52,67 +51,38 @@ class RegPage:
         pass_conf.send_keys(test_date[4])
         phone.send_keys(test_date[5])
 
-        print(button_reg.text)
-        # button_reg.click()
-        driver.execute_script("arguments[0].click();", button_reg)
-        # passw.send_keys(Keys.ENTER)
+        return button_reg, driver
 
+    def negative_tests_form(self, test_date):
+        locator = self.__get_locators(test_date)
+        # button_reg.click()
+        locator[1].execute_script("arguments[0].click();", locator[0])
+        # passw.send_keys(Keys.ENTER)
         try:
-            alert = wait(driver, 10).until(EC.presence_of_element_located(RegPage.ALERT))
+            alert = wait(locator[1], 10).until(EC.presence_of_element_located(RegPage.ALERT))
         except:
             pass
-
         # url = driver.current_url
         assert alert != False, 'test is failed, NO ALERT'
-        # assert url == RegPage.REG_PAGE_ADDRESS, 'test is failed'
-
-        print(alert.text)
-        print(type(alert))
-
-        time.sleep(1)
-        driver.quit()
+        locator[1].quit()
 
     def positive_tests_form(self, test_date):
-        driver = webdriver.Chrome()
-        driver.get(RegPage.REG_PAGE_ADDRESS)
-
-        firstname = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_FIRSTNAME))
-        lastname = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_LASTNAME))
-        login = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_LOGIN))
-        passw = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_PASS))
-        pass_conf = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_PASS_CONF))
-        phone = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_PHONE))
-        button_reg = wait(driver, 10).until(EC.element_to_be_clickable(RegPage.BUTTON_REG))
-
-        firstname.send_keys(test_date[0])
-        lastname.send_keys(test_date[1])
-        login.send_keys(test_date[2])
-        passw.send_keys(test_date[3])
-        pass_conf.send_keys(test_date[4])
-        phone.send_keys(test_date[5])
-
-        print(button_reg.text)
+        locator = self.__get_locators(test_date)
         # button_reg.click()
-        driver.execute_script("arguments[0].click();", button_reg)
+        locator[1].execute_script("arguments[0].click();", locator[0])
         # passw.send_keys(Keys.ENTER)
-
         try:
-            alert = wait(driver, 5).until(EC.presence_of_element_located(RegPage.ALERT))
+            alert = wait(locator[1], 3).until(EC.presence_of_element_located(RegPage.ALERT))
         except:
             alert = False
             pass
-
         # url = driver.current_url
         assert alert == False, 'test is failed, NO ALERT'
-        # assert url == RegPage.REG_PAGE_ADDRESS, 'test is failed'
-
-        # print(alert.text)
-        # print(type(alert))
-
-        time.sleep(1)
-        driver.quit()
+        locator[1].quit()
 
 
 q = RegPage()
-q.negative_tests_form(['qwe', '', 'ermqwe', 'Qwertyuiop[1974', 'Qwertyuiop[1974', '+420773288247'])
+# [firstname, lastname, password, password-confirm, phone namber]
+q.negative_tests_form(['qwe', ' ', 'ermqwe', 'Qwertyuiop[1974', 'Qwertyuiop[1974', '+420773288247'])
 q.positive_tests_form(['qwe', 'asd', 'ermqwe', 'Qwertyuiop[1974', 'Qwertyuiop[1974', '+420773288247'])
+
