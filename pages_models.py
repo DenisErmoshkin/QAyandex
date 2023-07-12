@@ -16,7 +16,7 @@ class SuccessRegPage:
     USER_ID_BAGE_CLOSE = (By.XPATH, '//*[@id="root"]/div/div/div/div[1]/div[1]/div[3]/div')
 
 
-class RegPage:
+class RegPage():
     REG_PAGE_ADDRESS = "https://passport.yandex.ru/registration?from=cloud&origin=disk_main-loginmenu_ru&retpath=https%3A%2F%2Fsso.passport.yandex.ru%2Fprepare%3Fuuid%3D6cca8810-61c4-4dad-a6db-a3fc2448dadf%26goal%3Dhttps%253A%252F%252Fya.ru%252F%26finish%3Dhttps%253A%252F%252Fdisk.yandex.ru%252Fclient%252Fdisk%253Fsource%253Dmain-loginmenu&process_uuid=f429ef0a-c189-4745-b372-3522397bd6b8"
     INPUT_FIRSTNAME = (By.ID, 'firstname')
     INPUT_LASTNAME = (By.ID, 'lastname')
@@ -33,16 +33,18 @@ class RegPage:
     ALERT_PASS_CONF_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[2]/div[2]/div/div')  # Необходимо ввести пароль еще раз
     ALERT_PHONE_ERR = (By.XPATH, '//*[@id="root"]/div/div[2]/div/main/div/div/div/form/div[3]/div/div[1]/div/div')  # Пожалуйста, укажите номер телефона
 
+    def __init__(self, driver):
+        self.driver = driver
+
     def __get_locators(self, test_date):
-        driver = webdriver.Chrome()
-        driver.get(RegPage.REG_PAGE_ADDRESS)
-        firstname = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_FIRSTNAME))
-        lastname = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_LASTNAME))
-        login = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_LOGIN))
-        passw = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_PASS))
-        pass_conf = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_PASS_CONF))
-        phone = wait(driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_PHONE))
-        button_reg = wait(driver, 10).until(EC.element_to_be_clickable(RegPage.BUTTON_REG))
+        self.driver.get(RegPage.REG_PAGE_ADDRESS)
+        firstname = wait(self.driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_FIRSTNAME))
+        lastname = wait(self.driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_LASTNAME))
+        login = wait(self.driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_LOGIN))
+        passw = wait(self.driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_PASS))
+        pass_conf = wait(self.driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_PASS_CONF))
+        phone = wait(self.driver, 10).until(EC.presence_of_element_located(RegPage.INPUT_PHONE))
+        button_reg = wait(self.driver, 10).until(EC.element_to_be_clickable(RegPage.BUTTON_REG))
 
         firstname.send_keys(test_date[0])
         lastname.send_keys(test_date[1])
@@ -51,7 +53,7 @@ class RegPage:
         pass_conf.send_keys(test_date[4])
         phone.send_keys(test_date[5])
 
-        return button_reg, driver
+        return button_reg, self.driver
 
     def negative_test_form(self, test_date):
         locator = self.__get_locators(test_date)
@@ -83,6 +85,7 @@ class RegPage:
         assert alert == False, 'test is failed, RISE ALERT'
         # print(alert)
         # locator[1].quit()
+
 
 
 
