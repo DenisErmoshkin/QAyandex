@@ -1,0 +1,23 @@
+
+
+---------------------------------------------------
+12-07-2023, 21:28:12, Chrome browser tests
+---------------------------------------------------
+OK - empty field firstname, NEGATIVE TEST
+OK - only spaces in field firstname, NEGATIVE TEST
+OK - 51 simbols in field firstname, NEGATIVE TEST
+OK - XSS injection in field firstname, NEGATIVE TEST
+NOK - SQL injection in field firstname, NEGATIVE TEST
+OK - CSS injection in field firstname, NEGATIVE TEST
+OK - HTML injection in field firstname, NEGATIVE TEST
+
+---------------------------------------------------
+12-07-2023, 21:28:43, Firefox browser tests
+---------------------------------------------------
+OK - empty field firstname, NEGATIVE TEST
+OK - only spaces in field firstname, NEGATIVE TEST
+OK - 51 simbols in field firstname, NEGATIVE TEST
+OK - XSS injection in field firstname, NEGATIVE TEST
+NOK - SQL injection in field firstname, NEGATIVE TEST
+OK - CSS injection in field firstname, NEGATIVE TEST
+NOK - HTML injection in field firstname, NEGATIVE TEST

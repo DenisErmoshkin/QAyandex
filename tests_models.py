@@ -8,7 +8,11 @@ def check_list_registration_form(q):
     str_date_time = str(date_time.strftime("%d-%m-%Y, %H:%M:%S"))
 
     with open('info_log.txt', 'a') as f:
-        f.write(str_date_time + '\n')
+        f.write('\n' + "---------------------------------------------------" + '\n' + str_date_time + ', ')
+        if 'chrome' in str(q.driver):
+            f.write('Chrome browser tests' + '\n' + "---------------------------------------------------" + '\n')
+        elif 'firefox' in str(q.driver):
+            f.write('Firefox browser tests' + '\n' + "---------------------------------------------------" + '\n')
 
     try:
         q.negative_test_form(['', 'qwe', 'ermqwe', 'Qwertyuiop[1974', 'Qwertyuiop[1974', '+79223332233'])
