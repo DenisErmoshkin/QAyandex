@@ -64,6 +64,7 @@ class RegPage():
         try:
             alert = wait(locator[1], 10).until(EC.presence_of_element_located(RegPage.ALERT))
         except:
+            alert = False
             pass
         # url = driver.current_url
         assert alert != False, 'test is failed, NO ALERT'
