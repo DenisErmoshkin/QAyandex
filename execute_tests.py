@@ -13,3 +13,5 @@ q = RegPage(driver)
 
 check_list_registration_form(q)
 driver.quit()
+
+#end tests
