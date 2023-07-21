@@ -6,6 +6,11 @@ def check_list_registration_form(q):
     timestamp = datetime.now().timestamp()
     date_time = datetime.fromtimestamp(timestamp)
     str_date_time = str(date_time.strftime("%d-%m-%Y, %H:%M:%S"))
+    list_1 = ['sdf', 'qwe', 'ermqwe', 'Qwertyuiop[1974', 'Qwertyuiop[1974', '+79223332233']
+    list_2 = ['', ' ', 'йорптирвнкглРПимхъэжфрыпвагцштиьмофяРЕУфвапясьмдлйь', '<script>alert("XSS atack!");</script>',
+              '105; DROP TABLE Suppliers', '<style>input[name=csrf_token][value=^a]</style>',
+              '<body>HTMLtag</body>']
+
 
     with open('info_log.txt', 'a') as f:
         f.write('\n' + "---------------------------------------------------" + '\n' + str_date_time + ', ')
