@@ -11,11 +11,11 @@ list_2 = [['', 'empty field firstname, NEGATIVE TEST'],
           ['<style>input[name=csrf_token][value=^a]</style>', 'CSS injection in field firstname, NEGATIVE TEST'],
           ['<body>HTMLtag</body>', 'HTML injection in field firstname, NEGATIVE TEST']]
 
-# driver = webdriver.Chrome()
-# q = RegPage(driver)
-#
-# check_list_registration_form(q)
-# driver.quit()
+driver = webdriver.Chrome()
+q = RegPage(driver)
+
+check_list_registration_form(q)
+driver.quit()
 
 
 driver = webdriver.Firefox()
