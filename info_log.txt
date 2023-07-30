@@ -1,1 +1,44 @@
 
+---------------------------------------------------
+30-07-2023, 22:31:23, Chrome browser tests, TEXTBOX number - 0
+---------------------------------------------------
+OK - empty field firstname, NEGATIVE TEST
+OK - only spaces in field firstname, NEGATIVE TEST
+OK - 51 simbols in field firstname, NEGATIVE TEST
+OK - XSS injection in field firstname, NEGATIVE TEST
+NOK - SQL injection in field firstname, NEGATIVE TEST, input date - 105; DROP TABLE Suppliers
+OK - CSS injection in field firstname, NEGATIVE TEST
+NOK - HTML injection in field firstname, NEGATIVE TEST, input date - <body>HTMLtag</body>
+
+---------------------------------------------------
+30-07-2023, 22:31:56, Chrome browser tests, TEXTBOX number - 1
+---------------------------------------------------
+OK - empty field firstname, NEGATIVE TEST
+OK - only spaces in field firstname, NEGATIVE TEST
+OK - 51 simbols in field firstname, NEGATIVE TEST
+OK - XSS injection in field firstname, NEGATIVE TEST
+NOK - SQL injection in field firstname, NEGATIVE TEST, input date - 105; DROP TABLE Suppliers
+OK - CSS injection in field firstname, NEGATIVE TEST
+NOK - HTML injection in field firstname, NEGATIVE TEST, input date - <body>HTMLtag</body>
+
+---------------------------------------------------
+30-07-2023, 22:32:33, Firefox browser tests, TEXTBOX number - 0
+---------------------------------------------------
+OK - empty field firstname, NEGATIVE TEST
+OK - only spaces in field firstname, NEGATIVE TEST
+OK - 51 simbols in field firstname, NEGATIVE TEST
+OK - XSS injection in field firstname, NEGATIVE TEST
+NOK - SQL injection in field firstname, NEGATIVE TEST, input date - 105; DROP TABLE Suppliers
+OK - CSS injection in field firstname, NEGATIVE TEST
+NOK - HTML injection in field firstname, NEGATIVE TEST, input date - <body>HTMLtag</body>
+
+---------------------------------------------------
+30-07-2023, 22:33:06, Firefox browser tests, TEXTBOX number - 1
+---------------------------------------------------
+OK - empty field firstname, NEGATIVE TEST
+OK - only spaces in field firstname, NEGATIVE TEST
+OK - 51 simbols in field firstname, NEGATIVE TEST
+OK - XSS injection in field firstname, NEGATIVE TEST
+NOK - SQL injection in field firstname, NEGATIVE TEST, input date - 105; DROP TABLE Suppliers
+OK - CSS injection in field firstname, NEGATIVE TEST
+NOK - HTML injection in field firstname, NEGATIVE TEST, input date - <body>HTMLtag</body>

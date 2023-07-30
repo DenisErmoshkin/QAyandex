@@ -14,14 +14,16 @@ list_2 = [['', 'empty field firstname, NEGATIVE TEST'],
 driver_chrom = webdriver.Chrome()
 q = RegPage(driver_chrom)
 
-check_list_registration_form(q, list_1, list_2)
+check_list_registration_form(q, list_1, list_2, 0)
+check_list_registration_form(q, list_1, list_2, 1)
 driver_chrom.quit()
 
 
 driver_fox = webdriver.Firefox()
 q = RegPage(driver_fox)
 
-check_list_registration_form(q, list_1, list_2)
+check_list_registration_form(q, list_1, list_2, 0)
+check_list_registration_form(q, list_1, list_2, 1)
 driver_fox.quit()
 
 #end tests
