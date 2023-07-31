@@ -9,9 +9,9 @@ def time_stamp(n, q):
     with open('info_log.txt', 'a') as f:
         f.write('\n' + "---------------------------------------------------" + '\n' + str_date_time + ', ')
         if 'chrome' in str(q.driver):
-            f.write('Chrome browser tests,' + ' TEXTBOX number - ' + str(n) + '\n' + "---------------------------------------------------" + '\n')
+            f.write('Chrome browser tests,' + ' formfield number - ' + str(n) + '\n' + "---------------------------------------------------" + '\n')
         elif 'firefox' in str(q.driver):
-            f.write('Firefox browser tests,' + ' TEXTBOX number - ' + str(n) + '\n' + "---------------------------------------------------" + '\n')
+            f.write('Firefox browser tests,' + ' formfield number - ' + str(n) + '\n' + "---------------------------------------------------" + '\n')
 
 
 def check_list_registration_form(q, list_1, list_2, n):
