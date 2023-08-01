@@ -1,6 +1,6 @@
 
 ---------------------------------------------------
-31-07-2023, 10:02:08, Chrome browser tests, formfield number - 0
+01-08-2023, 09:18:52, Chrome browser tests, formfield number - 0
 ---------------------------------------------------
 OK - empty field, NEGATIVE TEST
 OK - only spaces in field, NEGATIVE TEST
@@ -11,7 +11,7 @@ OK - CSS injection in field, NEGATIVE TEST
 NOK - HTML injection in field, NEGATIVE TEST, input date - <body>HTMLtag</body>
 
 ---------------------------------------------------
-31-07-2023, 10:02:41, Chrome browser tests, formfield number - 1
+01-08-2023, 09:19:26, Chrome browser tests, formfield number - 1
 ---------------------------------------------------
 OK - empty field, NEGATIVE TEST
 OK - only spaces in field, NEGATIVE TEST
@@ -22,7 +22,7 @@ OK - CSS injection in field, NEGATIVE TEST
 NOK - HTML injection in field, NEGATIVE TEST, input date - <body>HTMLtag</body>
 
 ---------------------------------------------------
-31-07-2023, 10:03:14, Chrome browser tests, formfield number - 2
+01-08-2023, 09:19:59, Chrome browser tests, formfield number - 2
 ---------------------------------------------------
 OK - empty field, NEGATIVE TEST
 OK - only spaces in field, NEGATIVE TEST
@@ -39,40 +39,7 @@ OK - CSS injection in field, NEGATIVE TEST
 OK - HTML injection in field, NEGATIVE TEST
 
 ---------------------------------------------------
-31-07-2023, 10:03:43, Firefox browser tests, formfield number - 0
+01-08-2023, 09:20:27, Firefox browser tests, formfield number - 0
 ---------------------------------------------------
 OK - empty field, NEGATIVE TEST
-OK - only spaces in field, NEGATIVE TEST
-OK - 51 simbols in field, NEGATIVE TEST
-OK - XSS injection in field, NEGATIVE TEST
-NOK - SQL injection in field, NEGATIVE TEST, input date - 105; DROP TABLE Suppliers
-OK - CSS injection in field, NEGATIVE TEST
-NOK - HTML injection in field, NEGATIVE TEST, input date - <body>HTMLtag</body>
-
----------------------------------------------------
-31-07-2023, 10:04:19, Firefox browser tests, formfield number - 1
----------------------------------------------------
-OK - empty field, NEGATIVE TEST
-OK - only spaces in field, NEGATIVE TEST
-OK - 51 simbols in field, NEGATIVE TEST
-OK - XSS injection in field, NEGATIVE TEST
-NOK - SQL injection in field, NEGATIVE TEST, input date - 105; DROP TABLE Suppliers
-OK - CSS injection in field, NEGATIVE TEST
-NOK - HTML injection in field, NEGATIVE TEST, input date - <body>HTMLtag</body>
-
----------------------------------------------------
-31-07-2023, 10:04:51, Firefox browser tests, formfield number - 2
----------------------------------------------------
-OK - empty field, NEGATIVE TEST
-OK - only spaces in field, NEGATIVE TEST
-OK - 51 simbols in field, NEGATIVE TEST
-OK - spase in login, NEGATIVE TEST
-OK - only punctuation marks in login, NEGATIVE TEST
-OK - utf simbols in login, NEGATIVE TEST
-OK - utf simbols in login, NEGATIVE TEST
-OK - punctuation marks in login, NEGATIVE TEST
-OK - punctuation marks in login, NEGATIVE TEST
-OK - XSS injection in field, NEGATIVE TEST
-OK - SQL injection in field, NEGATIVE TEST
-OK - CSS injection in field, NEGATIVE TEST
-OK - HTML injection in field, NEGATIVE TEST
+NOK - only spaces in field, NEGATIVE TEST, input date -  

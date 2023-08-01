@@ -14,11 +14,11 @@ def time_stamp(n, q):
             f.write('Firefox browser tests,' + ' formfield number - ' + str(n) + '\n' + "---------------------------------------------------" + '\n')
 
 
-def check_list_registration_form(q, list_1, list_2, n):
+def check_list_registration_form(q, l, w, n):
     # [firstname, lastname, password, password-confirm, phone namber]
     time_stamp(n, q)
-    list_11 = list_1.copy()
-    for element in list_2:
+    list_11 = l.copy()
+    for element in w:
         list_11[n] = element[0]
         try:
             q.negative_test_form(list_11)
