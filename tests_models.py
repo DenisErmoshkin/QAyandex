@@ -12,6 +12,7 @@ def time_stamp(n, q):
             f.write('Chrome browser tests,' + ' formfield number - ' + str(n) + '\n' + "---------------------------------------------------" + '\n')
         elif 'firefox' in str(q.driver):
             f.write('Firefox browser tests,' + ' formfield number - ' + str(n) + '\n' + "---------------------------------------------------" + '\n')
+        print(str(q.driver))
 
 
 def check_list_registration_form(q, l, w, n):
