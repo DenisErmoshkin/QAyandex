@@ -68,3 +68,81 @@ NOK - only spaces in field, NEGATIVE TEST, input date -
 NOK - 51 simbols in field, NEGATIVE TEST, input date - ימנןעטנגםךדכ׀ֿטלץת‎זפנûןגאדצרעטüלמפÿ׀ֵ׃פגאןÿסüלהכיü
 NOK - spase in login, NEGATIVE TEST, input date - jan hus.cz
 NOK - only punctuation marks in login, NEGATIVE TEST, input date - //___&&
+
+---------------------------------------------------
+17-08-2023, 05:35:56, Chrome browser tests, formfield number - 0
+---------------------------------------------------
+OK - empty field, NEGATIVE TEST
+OK - only spaces in field, NEGATIVE TEST
+OK - 51 simbols in field, NEGATIVE TEST
+OK - XSS injection in field, NEGATIVE TEST
+NOK - SQL injection in field, NEGATIVE TEST, input date - 105; DROP TABLE Suppliers
+OK - CSS injection in field, NEGATIVE TEST
+NOK - HTML injection in field, NEGATIVE TEST, input date - <body>HTMLtag</body>
+
+---------------------------------------------------
+17-08-2023, 05:36:31, Chrome browser tests, formfield number - 1
+---------------------------------------------------
+OK - empty field, NEGATIVE TEST
+OK - only spaces in field, NEGATIVE TEST
+OK - 51 simbols in field, NEGATIVE TEST
+OK - XSS injection in field, NEGATIVE TEST
+NOK - SQL injection in field, NEGATIVE TEST, input date - 105; DROP TABLE Suppliers
+OK - CSS injection in field, NEGATIVE TEST
+NOK - HTML injection in field, NEGATIVE TEST, input date - <body>HTMLtag</body>
+
+---------------------------------------------------
+17-08-2023, 05:37:03, Chrome browser tests, formfield number - 2
+---------------------------------------------------
+OK - empty field, NEGATIVE TEST
+OK - only spaces in field, NEGATIVE TEST
+OK - 51 simbols in field, NEGATIVE TEST
+OK - spase in login, NEGATIVE TEST
+OK - only punctuation marks in login, NEGATIVE TEST
+OK - utf simbols in login, NEGATIVE TEST
+OK - utf simbols in login, NEGATIVE TEST
+OK - punctuation marks in login, NEGATIVE TEST
+OK - punctuation marks in login, NEGATIVE TEST
+OK - XSS injection in field, NEGATIVE TEST
+OK - SQL injection in field, NEGATIVE TEST
+OK - CSS injection in field, NEGATIVE TEST
+OK - HTML injection in field, NEGATIVE TEST
+
+---------------------------------------------------
+17-08-2023, 05:37:31, Firefox browser tests, formfield number - 0
+---------------------------------------------------
+OK - empty field, NEGATIVE TEST
+OK - only spaces in field, NEGATIVE TEST
+OK - 51 simbols in field, NEGATIVE TEST
+OK - XSS injection in field, NEGATIVE TEST
+NOK - SQL injection in field, NEGATIVE TEST, input date - 105; DROP TABLE Suppliers
+OK - CSS injection in field, NEGATIVE TEST
+NOK - HTML injection in field, NEGATIVE TEST, input date - <body>HTMLtag</body>
+
+---------------------------------------------------
+17-08-2023, 05:38:04, Firefox browser tests, formfield number - 1
+---------------------------------------------------
+OK - empty field, NEGATIVE TEST
+OK - only spaces in field, NEGATIVE TEST
+OK - 51 simbols in field, NEGATIVE TEST
+OK - XSS injection in field, NEGATIVE TEST
+NOK - SQL injection in field, NEGATIVE TEST, input date - 105; DROP TABLE Suppliers
+OK - CSS injection in field, NEGATIVE TEST
+NOK - HTML injection in field, NEGATIVE TEST, input date - <body>HTMLtag</body>
+
+---------------------------------------------------
+17-08-2023, 05:38:36, Firefox browser tests, formfield number - 2
+---------------------------------------------------
+OK - empty field, NEGATIVE TEST
+OK - only spaces in field, NEGATIVE TEST
+OK - 51 simbols in field, NEGATIVE TEST
+OK - spase in login, NEGATIVE TEST
+OK - only punctuation marks in login, NEGATIVE TEST
+OK - utf simbols in login, NEGATIVE TEST
+OK - utf simbols in login, NEGATIVE TEST
+OK - punctuation marks in login, NEGATIVE TEST
+OK - punctuation marks in login, NEGATIVE TEST
+OK - XSS injection in field, NEGATIVE TEST
+OK - SQL injection in field, NEGATIVE TEST
+OK - CSS injection in field, NEGATIVE TEST
+OK - HTML injection in field, NEGATIVE TEST
